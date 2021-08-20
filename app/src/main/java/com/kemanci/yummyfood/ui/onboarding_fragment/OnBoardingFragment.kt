@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.kemanci.yummyfood.databinding.HomeFragmentBinding
 import com.kemanci.yummyfood.databinding.OnboardingFragmentBinding
 
 class OnBoardingFragment : Fragment() {

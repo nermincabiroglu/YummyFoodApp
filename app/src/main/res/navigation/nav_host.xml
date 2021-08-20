@@ -3,13 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/signin_fragment">
+    app:startDestination="@id/SplashFragment">
 
     <fragment
-        android:id="@+id/splash_fragment"
+        android:id="@+id/SplashFragment"
         android:name="com.kemanci.yummyfood.ui.splash_fragment.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/splash_fragment">
+
+        <action
+            android:id="@+id/action_splash_fragment_to_signin_fragment"
+            app:destination="@id/signin_fragment"
+            app:popUpTo="@id/SplashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splash_fragment_to_onboarding_fragment"
+            app:destination="@id/onboarding_fragment"
+            app:popUpTo="@id/SplashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splash_fragment_to_home_fragment"
+            app:destination="@id/home_fragment"
+            app:popUpTo="@id/SplashFragment"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="token"
+            app:argType="integer"
+            android:defaultValue="-1" />
 
     </fragment>
 
@@ -19,7 +40,43 @@
         android:label="fragment_signin"
         tools:layout="@layout/signin_fragment">
 
+        <action
+            android:id="@+id/action_signin_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment" />
+        <action
+            android:id="@+id/action_signin_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/signup_fragment"
+        android:name="com.kemanci.yummyfood.ui.signup_fragment.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/signup_fragment">
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.kemanci.yummyfood.ui.home_fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/home_fragment">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/onboarding_fragment"
+        android:name="com.kemanci.yummyfood.ui.onboarding_fragment.OnBoardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/onboarding_fragment">
+
+    </fragment>
+
+
+
+
 
 
 </navigation>

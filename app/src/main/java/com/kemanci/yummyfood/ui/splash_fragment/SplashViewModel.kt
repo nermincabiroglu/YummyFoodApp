@@ -12,10 +12,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(private val apiRepository: ApiRepository) : ViewModel() {
-    private var token: Int = apiRepository.getInt(SharedPrefManager.TOKEN)
+    private var token: String? = apiRepository.getString(SharedPrefManager.TOKEN)
     private var firstLaunch: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun getToken(): Int = this.token
+    fun getToken(): String? = this.token
     fun isFirstLaunch(): LiveData<Boolean> = this.firstLaunch
 
     fun handleAppLaunch() {

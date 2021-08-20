@@ -17,7 +17,7 @@ class SharedPrefManager(context: Context) {
         sharedPreferences.edit().putString(key, data).apply()
     }
 
-    fun getString(key: String): String? = sharedPreferences.getString(key, "")
+    fun getString(key: String): String? = sharedPreferences.getString(key, "-1")
 
     fun saveInt(key: String, data: Int) {
         sharedPreferences.edit().putInt(key, data).apply()

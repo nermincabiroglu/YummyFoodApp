@@ -2,12 +2,16 @@ package com.kemanci.yummyfood.ui.signin_fragment
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
+import com.kemanci.yummyfood.R
 import com.kemanci.yummyfood.databinding.SigninFragmentBinding
 import com.kemanci.yummyfood.utils.Common.Companion.isEmailValid
 import com.kemanci.yummyfood.utils.Resource
@@ -24,10 +28,12 @@ class SigninFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
+        val snackbar: Snackbar = Snackbar.make(this.binding.root,"Giriş Başarılı",Snackbar.LENGTH_SHORT)
+
         binding.signupButton.setOnClickListener{
             alphaAnim(binding.signupButton)
+            findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToSignupFragment())
         }
         binding.signinButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
@@ -46,8 +52,10 @@ class SigninFragment: Fragment() {
                     }
                     Resource.Status.SUCCESS -> {
                         binding.progressLayout.visibility = View.GONE
-                        Log.e("TAG", "onViewCreated: Başarılı" )
-                        print(it.data.toString())
+                        snackbar.show()
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment())
+                        },1500)
                     }
                     Resource.Status.ERROR -> {
                         binding.progressLayout.visibility = View.GONE
