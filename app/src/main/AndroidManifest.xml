@@ -16,7 +16,7 @@
         android:theme="@style/Theme.YummyFood">
 
         <activity
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustPan"
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>

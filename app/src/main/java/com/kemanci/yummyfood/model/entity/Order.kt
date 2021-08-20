@@ -15,5 +15,5 @@ class Order(
     @SerializedName("account_id")
     var account_id:String,
     @SerializedName("order_date")
-    var order_date:String
+    var order_date:String?
 ):Parcelable
