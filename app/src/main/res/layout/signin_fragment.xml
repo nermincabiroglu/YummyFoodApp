@@ -9,9 +9,10 @@
     tools:context=".ui.signin_fragment.SigninFragment">
 
     <ImageView
+        android:contentDescription="@string/app_name"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="240dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,19 +56,21 @@
             android:layout_height="wrap_content"
             android:id="@+id/email_input_layout"
             app:expandedHintEnabled="true"
+            app:errorTextAppearance="@style/ErrorTextLabel"
             app:errorEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="wrap_content"
                 android:drawablePadding = "10dp"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:fontFamily="@font/niramit_regular"
                 android:inputType="textEmailAddress"
-                android:imeOptions="actionDone"
+                android:backgroundTint="@color/text_color"
+                android:imeOptions="actionNext"
                 android:drawableStart="@drawable/ic_email"
                 android:drawableTint="@color/text_color"
-                android:hint="@string/email_rsc" />
+                android:hint="@string/email_src" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,13 +79,14 @@
             app:expandedHintEnabled="true"
             android:id="@+id/password_input_layout"
             android:layout_height="wrap_content"
+            app:errorTextAppearance="@style/ErrorTextLabel"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_edit_text"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
                 android:drawablePadding="10dp"
                 android:inputType="textPassword"
                 android:imeOptions="actionDone"
@@ -90,7 +94,7 @@
                 android:drawableStart="@drawable/ic_unlock"
                 android:drawableTint="@color/text_color"
                 android:backgroundTint="@color/text_color"
-                android:hint="@string/password_rsc" />
+                android:hint="@string/password_src" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,7 +103,7 @@
 
     </LinearLayout>
     <com.google.android.material.button.MaterialButton
-        android:text="@string/login_rsc"
+        android:text="@string/login_src"
         android:textAllCaps="false"
         android:fontFamily="@font/niramit_regular"
         android:layout_width="130dp"
@@ -120,28 +124,26 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintVertical_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signin_button">
 
         <TextView
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:fontFamily="@font/niramit_light"
             android:textColor="@color/text_color"
-            android:text="Hesabınız yok mu? "
+            android:text="@string/has_account_negative_src"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/signup_button"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:fontFamily="@font/niramit_semibold"
             android:textColor="@color/green_color"
-            android:text="Kayıt Olun"
+            android:text="@string/psignup_src"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-
-
 
 
     </LinearLayout>

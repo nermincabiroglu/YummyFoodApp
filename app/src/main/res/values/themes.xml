@@ -14,4 +14,15 @@
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="HintTextLabel" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+    <style name="ErrorTextLabel" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
 </resources>

@@ -1,5 +1,6 @@
 package com.kemanci.yummyfood.ui.signin_fragment
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -16,7 +17,9 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.kemanci.yummyfood.R
 import com.kemanci.yummyfood.databinding.SigninFragmentBinding
+import com.kemanci.yummyfood.utils.Common
 import com.kemanci.yummyfood.utils.Common.Companion.isEmailValid
+import com.kemanci.yummyfood.utils.KeyboardHelper.Companion.hideKeyboard
 import com.kemanci.yummyfood.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +29,6 @@ class SigninFragment: Fragment() {
     private val viewModel:SigninViewModel by viewModels()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =  SigninFragmentBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -37,10 +39,10 @@ class SigninFragment: Fragment() {
 
 
         val errorSnackbar: Snackbar = Snackbar.make(this.binding.root,"Giriş Başarısız",Snackbar.LENGTH_SHORT)
-        errorSnackbar.setBackgroundTint(Color.parseColor("#ee8181"))
+        errorSnackbar.setBackgroundTint(Color.parseColor("#EE8181"))
 
         binding.signupButton.setOnClickListener{
-            alphaAnim(binding.signupButton)
+            Common.alphaAnim(binding.signupButton)
             findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToSignupFragment())
         }
         binding.signinButton.setOnClickListener {
@@ -55,7 +57,7 @@ class SigninFragment: Fragment() {
             viewModel.login(email = email,password = password).observe(viewLifecycleOwner,{
                 when(it.status){
                     Resource.Status.LOADING -> {
-                        hideKeyboard()
+                        hideKeyboard(this.activity,binding.root)
                         binding.progressLayout.visibility = View.VISIBLE
                         Log.e("TAG", "onViewCreated: Bekliyoruz")
                     }
@@ -94,13 +96,7 @@ class SigninFragment: Fragment() {
 
         return result
     }
-    fun alphaAnim(view:View){
-        view.alpha = 0.4f
-        view.animate()!!.alpha(1f).setDuration(500).start()
-    }
 
-    fun hideKeyboard(){
-        val imm = this.activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(binding.root.getWindowToken(), 0)
-    }
+
+
 }

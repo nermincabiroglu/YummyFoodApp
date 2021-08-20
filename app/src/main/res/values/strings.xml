@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Yummy Food</string>
-    <string name="password_rsc">Parola</string>
-    <string name="email_rsc">Email Adresi</string>
-    <string name="login_rsc">Giriş yap</string>
+    <string name="password_src">Parola</string>
+    <string name="email_src">Email Adresi</string>
+    <string name="login_src">Giriş yap</string>
+    <string name="signup_src">Kayıt Ol</string>
+    <string name="name_src">Adınız</string>
+    <string name="surname_src">Soyadınız</string>
+    <string name="phone_number_src">Telefon numarası</string>
+    <string name="address_src">Adres</string>
+    <string name="province_src">Şehir</string>
+    <string name="county_src">İlçe</string>
+    <string name="psignup_src">Kayıt Olun</string>
+    <string name="has_account_negative_src">Hesabınız yok mu?&#160;</string>
+    <string name="has_account_positive_src">Hesabınız var mı?&#160;</string>
 </resources>

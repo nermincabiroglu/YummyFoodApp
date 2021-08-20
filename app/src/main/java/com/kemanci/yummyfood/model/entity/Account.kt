@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class Account(
     @SerializedName("_id")
-    var _id:String,
+    var _id:String?,
 
     @SerializedName("name")
     var name:String,
@@ -22,7 +22,7 @@ class Account(
     var password:String,
 
     @SerializedName("orders")
-    var orders:ArrayList<Order>,
+    var orders:ArrayList<Order>?,
 
     @SerializedName("province")
     var province:String,
