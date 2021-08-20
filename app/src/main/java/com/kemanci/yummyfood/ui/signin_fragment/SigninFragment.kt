@@ -32,18 +32,9 @@ class SigninFragment: Fragment() {
                         Log.e("TAG", "onViewCreated: Başarılı" )
                         print(it.data.toString())
                     }
-                    Resource.Status.ERROR -> Log.e("TAG", "onViewCreated: Başarısız" )
+                    Resource.Status.ERROR -> Log.e("TAG", "onViewCreated: Başarısız"+it.message )
                 }
             })
-            /*viewModel.profile("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1obXRAZGVtb2dsdS5jb20iLCJwYXNzd29yZCI6ImRlbmVtZTEyMyIsImlhdCI6MTYyOTQxNzc3MH0.GBGiMEak_Wzg_7us8tpufWaMIwx_5IMXpCBDmNDQ1OM").observe(viewLifecycleOwner,{
-                when(it.status){
-                    Resource.Status.LOADING -> Log.e("TAG", "onViewCreated:Bekliyor"+it.message )
-                    Resource.Status.SUCCESS -> {
-                        Log.e("TAG", "onViewCreated: Başarılı işte"+it.message)
-                    }
-                    Resource.Status.ERROR -> Log.e("TAG", "onViewCreated:Başarısız"+it.message )
-                }
-            })*/
         }
     }
 }

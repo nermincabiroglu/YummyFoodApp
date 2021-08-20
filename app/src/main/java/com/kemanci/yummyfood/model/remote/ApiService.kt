@@ -9,11 +9,13 @@ import java.util.*
 
 interface ApiService {
 
-    @GET("account/login")
-    suspend fun login(@Body() loginRequest: LoginRequest):Response<AccountResponse>
+    //todo:checkpoint
+    @Headers("Content-Type: application/json")
+    @POST("/account/login")
+    suspend fun login(@Body loginRequest: LoginRequest):Response<AccountResponse>
 
-    @POST("account")
-    suspend fun signup(@Body() account:Account):Response<Account>
+    @POST("/account")
+    suspend fun signup(@Body account:Account):Response<Account>
 
     @GET("account/profile")
     suspend fun profile(@Header("Authorization") token:String):Response<Account>

@@ -2,4 +2,5 @@
     <string name="app_name">Yummy Food</string>
     <string name="password_rsc">Parola</string>
     <string name="email_rsc">Email Adresi</string>
+    <string name="login_rsc">Giriş yap</string>
 </resources>

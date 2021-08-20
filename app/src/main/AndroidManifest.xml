@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YummyFood">
+
         <activity
+            android:windowSoftInputMode="adjustResize"
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
