@@ -5,7 +5,6 @@ import android.view.View
 
 class Extension {
 
-
     fun View.show() {
         visibility = View.VISIBLE
     }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/splash_fragment">
+    app:startDestination="@id/signin_fragment">
 
     <fragment
         android:id="@+id/splash_fragment"
@@ -12,5 +12,14 @@
         tools:layout="@layout/splash_fragment">
 
     </fragment>
+
+    <fragment
+        android:id="@+id/signin_fragment"
+        android:name="com.kemanci.yummyfood.ui.signin_fragment.SigninFragment"
+        android:label="fragment_signin"
+        tools:layout="@layout/signin_fragment">
+
+    </fragment>
+
 
 </navigation>
