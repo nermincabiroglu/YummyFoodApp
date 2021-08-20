@@ -1,5 +1,7 @@
 package com.kemanci.yummyfood.ui.signin_fragment
 
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -29,7 +32,12 @@ class SigninFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val snackbar: Snackbar = Snackbar.make(this.binding.root,"Giriş Başarılı",Snackbar.LENGTH_SHORT)
+        val successSnackbar: Snackbar = Snackbar.make(this.binding.root,"Giriş Başarılı",Snackbar.LENGTH_SHORT)
+        successSnackbar.setBackgroundTint(Color.parseColor("#6C9FA0"))
+
+
+        val errorSnackbar: Snackbar = Snackbar.make(this.binding.root,"Giriş Başarısız",Snackbar.LENGTH_SHORT)
+        errorSnackbar.setBackgroundTint(Color.parseColor("#ee8181"))
 
         binding.signupButton.setOnClickListener{
             alphaAnim(binding.signupButton)
@@ -47,17 +55,19 @@ class SigninFragment: Fragment() {
             viewModel.login(email = email,password = password).observe(viewLifecycleOwner,{
                 when(it.status){
                     Resource.Status.LOADING -> {
+                        hideKeyboard()
                         binding.progressLayout.visibility = View.VISIBLE
                         Log.e("TAG", "onViewCreated: Bekliyoruz")
                     }
                     Resource.Status.SUCCESS -> {
                         binding.progressLayout.visibility = View.GONE
-                        snackbar.show()
+                        successSnackbar.show()
                         Handler(Looper.getMainLooper()).postDelayed({
                             findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment())
                         },1500)
                     }
                     Resource.Status.ERROR -> {
+                        errorSnackbar.show()
                         binding.progressLayout.visibility = View.GONE
                         Log.e("TAG", "onViewCreated: Başarısız" + it.message)
                     }
@@ -89,5 +99,8 @@ class SigninFragment: Fragment() {
         view.animate()!!.alpha(1f).setDuration(500).start()
     }
 
-
+    fun hideKeyboard(){
+        val imm = this.activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(binding.root.getWindowToken(), 0)
+    }
 }
