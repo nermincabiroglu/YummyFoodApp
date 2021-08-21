@@ -12,13 +12,8 @@
         tools:layout="@layout/splash_fragment">
 
         <action
-            android:id="@+id/action_splash_fragment_to_signin_fragment"
-            app:destination="@id/signin_fragment"
-            app:popUpTo="@id/SplashFragment"
-            app:popUpToInclusive="true"/>
-        <action
             android:id="@+id/action_splash_fragment_to_onboarding_fragment"
-            app:destination="@id/onboarding_fragment"
+            app:destination="@id/main_onboarding_fragment"
             app:popUpTo="@id/SplashFragment"
             app:popUpToInclusive="true"/>
         <action
@@ -72,11 +67,17 @@
 
 
     <fragment
-        android:id="@+id/onboarding_fragment"
-        android:name="com.kemanci.yummyfood.ui.onboarding_fragment.OnBoardingFragment"
+        android:id="@+id/main_onboarding_fragment"
+        android:name="com.kemanci.yummyfood.ui.onboarding_fragment.MainOnBoardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/onboarding_fragment">
+        tools:layout="@layout/main_onboarding_fragment">
 
+        <action
+            android:id="@+id/action_main_onboarding_fragment_to_signin_fragment"
+            app:destination="@id/signin_fragment" />
+        <action
+            android:id="@+id/action_main_onboarding_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment" />
     </fragment>
 
 

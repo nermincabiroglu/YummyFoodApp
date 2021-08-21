@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.kemanci.yummyfood.databinding.SplashFragmentBinding
+import com.kemanci.yummyfood.ui.onboarding_fragment.MainOnBoardingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,11 +24,11 @@ class SplashFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setObservers()
+        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
         viewModel.handleAppLaunch()
     }
 
-    private fun setObservers() {
+    /* private fun setObservers() {
         val token:String? = viewModel.getToken()
         Log.e("TOKEN", "setObservers: "+ token)
         if(token.isNullOrBlank()) {
@@ -46,7 +47,7 @@ class SplashFragment:Fragment() {
                 viewModel.navigationDone()
             }
         })
-    }
+    }*/
 
 
 }
