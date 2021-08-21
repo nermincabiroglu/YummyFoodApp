@@ -22,10 +22,6 @@
             app:popUpTo="@id/SplashFragment"
             app:popUpToInclusive="true" />
 
-        <argument
-            android:name="token"
-            app:argType="integer"
-            android:defaultValue="-1" />
 
     </fragment>
 
@@ -37,10 +33,18 @@
 
         <action
             android:id="@+id/action_signin_fragment_to_signup_fragment"
-            app:destination="@id/signup_fragment" />
+            app:destination="@id/signup_fragment"
+            app:popUpTo="@id/signin_fragment"
+            app:popUpToInclusive="true"/>
+
+
+
         <action
             android:id="@+id/action_signin_fragment_to_home_fragment"
-            app:destination="@id/home_fragment" />
+            app:destination="@id/home_fragment"
+            app:popUpTo="@id/signin_fragment"
+            app:popUpToInclusive="true"/>
+
     </fragment>
 
 
@@ -63,6 +67,13 @@
         android:name="com.kemanci.yummyfood.ui.home_fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/home_fragment">
+
+
+        <argument
+            app:nullable="true"
+            android:name="userid"
+            app:argType="com.kemanci.yummyfood.model.entity.AccountResponse" />
+
     </fragment>
 
 

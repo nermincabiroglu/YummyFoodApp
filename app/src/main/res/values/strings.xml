@@ -21,4 +21,11 @@
     <string name="onboarding_two_text">Siparişinizi verdikten kısa bir süre sonra yemeğiniz sıcacık bir şekilde kapınızda</string>
     <string name="onboarding_three_header">Restoranı Puanlayın</string>
     <string name="onboarding_three_text">Restoranı ve siparişinizi puanlayabilir, diğer kullanıcıların bu puanlardan faydalanmasını sağlayabilirsiniz.</string>
+    <string name="default_val">1</string>
+    <string name="welcome_text_src">Hoş geldiniz</string>
+    <string name="sample_name">Ali Demoglu</string>
+    <string name="search_restaurant_src">Restoran Ara</string>
+    <string name="comma_src">,&#160;</string>
+    <string name="previous_orders_src">Önceki Siparişlerim</string>
+    <string name="tl_src">&#160;TL</string>
 </resources>

@@ -29,6 +29,9 @@ class SigninFragment: Fragment() {
     private val viewModel:SigninViewModel by viewModels()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =  SigninFragmentBinding.inflate(inflater, container, false)
+
+        // TODO: 21.08.2021 check point
+        //findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment())
         return binding.root
     }
 
@@ -49,11 +52,13 @@ class SigninFragment: Fragment() {
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
+            
             errorHandlingForInputLayout(email,password).let {
                 if(!it){
                     return@setOnClickListener
                 }
             }
+            
             viewModel.login(email = email,password = password).observe(viewLifecycleOwner,{
                 when(it.status){
                     Resource.Status.LOADING -> {
@@ -65,7 +70,7 @@ class SigninFragment: Fragment() {
                         binding.progressLayout.visibility = View.GONE
                         successSnackbar.show()
                         Handler(Looper.getMainLooper()).postDelayed({
-                            findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment())
+                            findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment(it.data))
                         },1500)
                     }
                     Resource.Status.ERROR -> {
