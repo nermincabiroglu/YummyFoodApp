@@ -67,28 +67,29 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:layout_marginHorizontal="2dp"
         android:id="@+id/materialButton"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:backgroundTint="@color/white"
-        android:elevation="20dp"
+        android:elevation="0dp"
+        app:strokeWidth="1dp"
         android:fontFamily="@font/niramit_regular"
         android:text="@string/search_restaurant_src"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="#263238"
-        android:textSize="17sp"
-        app:cornerRadius="15dp"
+        android:textSize="16sp"
+        app:cornerRadius="20dp"
         app:icon="@drawable/ic_search"
         app:iconTint="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.08"
+        app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.04"
-        app:strokeColor="#C4C4C4"
-        app:strokeWidth="1dp" />
+        app:strokeColor="#C4C4C4" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -165,7 +166,7 @@
             android:textSize="17sp" />
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -181,9 +182,33 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/previousOrderRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:background="@drawable/blurry_background"
+            android:gravity="center"
+            android:id="@+id/progressLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

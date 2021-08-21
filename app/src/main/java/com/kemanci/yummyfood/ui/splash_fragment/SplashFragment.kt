@@ -24,8 +24,9 @@ class SplashFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
-        viewModel.handleAppLaunch()
+        viewModel.handleAppLaunch().let {
+           findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
+        }
     }
 
     /* private fun setObservers() {

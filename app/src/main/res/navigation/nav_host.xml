@@ -71,7 +71,7 @@
 
         <argument
             app:nullable="true"
-            android:name="userid"
+            android:name="accountResponse"
             app:argType="com.kemanci.yummyfood.model.entity.AccountResponse" />
 
     </fragment>

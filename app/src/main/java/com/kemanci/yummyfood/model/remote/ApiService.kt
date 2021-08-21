@@ -42,4 +42,10 @@ interface ApiService {
 
     @POST("order")
     suspend fun wishOrder(@Body order: Order):Response<Order>
+
+    @GET("restaurant/{id}")
+    suspend fun getRestaurantById(@Path("id") id:String):Response<Restaurant>
+
+    @GET("food/{id}")
+    suspend fun getFoodById(@Path("id") id:String):Response<Food>
 }

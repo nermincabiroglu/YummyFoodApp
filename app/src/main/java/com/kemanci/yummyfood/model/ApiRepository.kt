@@ -26,6 +26,8 @@ class ApiRepository @Inject constructor(
     fun getOrderByAccountId(id: String) = performNetworkOperation { remoteDataSource.getOrderByAccountId(id) }
     fun wishOrder(order: Order) = performNetworkOperation { remoteDataSource.wishOrder(order) }
 
+    fun getRestaurantById(id: String) = performNetworkOperation { remoteDataSource.getRestaurantById(id) }
+    fun getFoodById(id: String) = performNetworkOperation { remoteDataSource.getFoodById(id) }
 
     // TODO: LOCAL
     fun saveString(key: String, data: String) {

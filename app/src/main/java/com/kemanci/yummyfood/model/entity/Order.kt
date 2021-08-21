@@ -15,5 +15,9 @@ class Order(
     @SerializedName("account_id")
     var account_id:String,
     @SerializedName("order_date")
-    var order_date:String?
+    var order_date:String?,
+    var foodName:String,
+    var foodPrice:String,
+    var restaurantName:String,
+    var restaurantPoint:String
 ):Parcelable

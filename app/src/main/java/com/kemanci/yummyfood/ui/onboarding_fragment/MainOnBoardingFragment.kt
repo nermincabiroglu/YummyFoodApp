@@ -12,8 +12,10 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kemanci.yummyfood.databinding.MainOnboardingFragmentBinding
 import com.kemanci.yummyfood.ui.splash_fragment.SplashFragmentDirections
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainOnBoardingFragment : Fragment() {
     private lateinit var binding: MainOnboardingFragmentBinding
     private lateinit var onBoardingViewPagerAdapter: OnBoardingViewPagerAdapter
