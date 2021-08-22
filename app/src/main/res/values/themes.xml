@@ -9,10 +9,9 @@
         <item name="colorSecondary">@color/green_color</item>
         <item name="colorSecondaryVariant">@color/green_color</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
+
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
-        <!-- Customize your theme here. -->
     </style>
 
     <style name="HintTextLabel" parent="TextAppearance.Design.Hint">
@@ -23,6 +22,7 @@
     <style name="ErrorTextLabel" parent="TextAppearance.Design.Error">
         <item name="android:textSize">10sp</item>
     </style>
+
 
 
 </resources>

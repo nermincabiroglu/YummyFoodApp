@@ -20,6 +20,7 @@ class OrderRecyclerViewAdapter(
             binding.restaurantNameText.text = item.restaurantName
             binding.foodNameText.text = item.foodName
             binding.foodPriceText.text = item.foodPrice
+            binding.dateTextView.text = item.order_date.toString().replace("-","/")
             var alphaVal:Double = 1.0
             var colorCode:String = "#81BF4A"
             if (item.restaurantPoint==null){

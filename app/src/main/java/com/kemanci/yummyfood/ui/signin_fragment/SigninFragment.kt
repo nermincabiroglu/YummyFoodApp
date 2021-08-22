@@ -70,6 +70,7 @@ class SigninFragment: Fragment() {
                         binding.progressLayout.visibility = View.GONE
                         successSnackbar.show()
                         Handler(Looper.getMainLooper()).postDelayed({
+
                             findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment(it.data))
                         },1500)
                     }

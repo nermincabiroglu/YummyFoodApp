@@ -28,7 +28,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/restaurant_point_card"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="#81BF4A"
                 android:layout_width="50dp"
                 android:layout_height="27dp">
@@ -37,7 +37,7 @@
                     android:text="4,2"
                     android:textColor="@color/white"
                     android:gravity="center_vertical"
-                    android:textSize="15sp"
+                    android:textSize="13sp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -49,8 +49,22 @@
                 android:id="@+id/restaurant_name_text"
                 android:fontFamily="@font/niramit_medium"
                 android:textColor="@color/text_color"
-                android:textSize="18dp"
+                android:textSize="16sp"
                 android:text="@string/sample_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Space
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/date_text_view"
+                android:textColor="@color/tab_text_grey"
+                android:textSize="11sp"
+                android:fontFamily="@font/niramit_regular"
+                android:text="12/12/2021"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -72,7 +86,7 @@
                 android:id="@+id/food_name_text"
                 android:fontFamily="@font/niramit_regular"
                 android:textColor="@color/text_color"
-                android:textSize="15dp"
+                android:textSize="13sp"
                 android:text="Martı Döner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -95,14 +109,14 @@
                 android:id="@+id/food_price_text"
                 android:fontFamily="@font/niramit_regular"
                 android:textColor="@color/text_color"
-                android:textSize="15dp"
+                android:textSize="13dp"
                 android:text="10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:fontFamily="@font/niramit_regular"
                 android:textColor="@color/text_color"
-                android:textSize="15dp"
+                android:textSize="13dp"
                 android:text="@string/tl_src"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -114,7 +128,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         android:background="@color/tab_text_grey"
         android:layout_width="match_parent"
