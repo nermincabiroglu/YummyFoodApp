@@ -28,4 +28,7 @@
     <string name="comma_src">,&#160;</string>
     <string name="previous_orders_src">Önceki Siparişlerim</string>
     <string name="tl_src">&#160;TL</string>
+    <string name="settings_text">Ayarlar</string>
+    <string name="back_button_text">Geri</string>
+    <string name="save_button_text">Kaydet</string>
 </resources>

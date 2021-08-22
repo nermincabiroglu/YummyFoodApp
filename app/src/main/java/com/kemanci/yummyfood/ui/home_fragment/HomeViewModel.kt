@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val  apiRepository: ApiRepository):ViewModel() {
-    private var token: String = apiRepository.getInt(SharedPrefManager.TOKEN).toString()
+    private var token: String = apiRepository.getString(SharedPrefManager.TOKEN).toString()
     fun getToken(): String = this.token
     
     fun profile(token:String): LiveData<Resource<Account>> {
