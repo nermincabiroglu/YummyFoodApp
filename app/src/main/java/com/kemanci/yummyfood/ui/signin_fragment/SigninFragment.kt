@@ -69,6 +69,7 @@ class SigninFragment: Fragment() {
                     Resource.Status.SUCCESS -> {
                         binding.progressLayout.visibility = View.GONE
                         successSnackbar.show()
+                        viewModel.saveToken(it.data!!.token)
                         Handler(Looper.getMainLooper()).postDelayed({
 
                             findNavController().navigate(SigninFragmentDirections.actionSigninFragmentToHomeFragment(it.data))

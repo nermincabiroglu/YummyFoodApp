@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kemanci.yummyfood.model.ApiRepository
+import com.kemanci.yummyfood.model.entity.Account
 import com.kemanci.yummyfood.model.local.SharedPrefManager
+import com.kemanci.yummyfood.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -18,10 +20,10 @@ class SplashViewModel @Inject constructor(private val apiRepository: ApiReposito
     fun getToken(): String? = this.token
     fun isFirstLaunch(): LiveData<Boolean> = this.firstLaunch
 
-    fun handleAppLaunch() {
-        Handler(Looper.getMainLooper()).postDelayed({
-            this.firstLaunch.value = apiRepository.getBoolean(SharedPrefManager.FIRST_LAUNCH)
-        }, 2000)
+
+
+    fun profile(token:String):LiveData<Resource<Account>>{
+        return  apiRepository.profile(token)
     }
 
     fun saveFirstLaunch() {

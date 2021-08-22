@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kemanci.yummyfood.databinding.RestaurantListFragmentBinding
@@ -37,7 +38,7 @@ class RestaurantListFragment:Fragment(){
             context = requireContext(),
             recyclerViewItemOnClickListener = object:RecyclerViewItemOnClickListener{
                 override fun onClick(position: Int) {
-                    print(position)
+                    findNavController().navigate(RestaurantListFragmentDirections.actionRestaurantListFragmentToRestaurantFragment(restaurantId = restaurantList[position]._id))
                 }
             }
         )

@@ -110,6 +110,9 @@
             app:nullable="true"
             app:argType="string"
             />
+        <action
+            android:id="@+id/action_restaurant_list_fragment_to_restaurant_fragment"
+            app:destination="@id/restaurant_fragment" />
 
     </fragment>
 
@@ -120,6 +123,20 @@
         android:name="com.kemanci.yummyfood.ui.settings_fragment.SettingsFragment"
         tools:layout="@layout/settings_fragment"
         android:label="fragment_settings">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurant_fragment"
+        android:name="com.kemanci.yummyfood.ui.restaurant_fragment.RestaurantFragment"
+        tools:layout="@layout/restaurant_fragment"
+        android:label="fragment_restaurant">
+
+
+        <argument
+            android:name="restaurantId"
+            app:argType="string"
+            app:nullable="true"/>
 
     </fragment>
 

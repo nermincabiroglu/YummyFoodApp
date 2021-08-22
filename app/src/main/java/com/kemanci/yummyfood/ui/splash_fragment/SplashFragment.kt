@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.kemanci.yummyfood.databinding.SplashFragmentBinding
+import com.kemanci.yummyfood.model.entity.AccountResponse
 import com.kemanci.yummyfood.ui.onboarding_fragment.MainOnBoardingFragment
+import com.kemanci.yummyfood.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,36 +21,31 @@ class SplashFragment:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =  SplashFragmentBinding.inflate(inflater, container, false)
+        setObservers()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.handleAppLaunch().let {
-           findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
-        }
     }
 
-    /* private fun setObservers() {
+     private fun setObservers() {
         val token:String? = viewModel.getToken()
         Log.e("TOKEN", "setObservers: "+ token)
-        if(token.isNullOrBlank()) {
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToSigninFragment())
+        if(token == "-1") {
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
             return
-        }
-        viewModel.isFirstLaunch().observe(viewLifecycleOwner, {
-            if (it != null) {
-                when(it) {
-                    true -> {
-                        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToOnboardingFragment())
-                        viewModel.saveFirstLaunch()
-                    }
-                    else -> findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToSigninFragment())
+        }else{
+            viewModel.profile(token!!).observe(viewLifecycleOwner,{
+                if(it.status== Resource.Status.SUCCESS){
+                    val accountResponse:AccountResponse = AccountResponse(account = it.data!!,token = token)
+                    findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment(accountResponse))
                 }
-                viewModel.navigationDone()
-            }
-        })
-    }*/
+            })
+
+        }
+
+    }
 
 
 }

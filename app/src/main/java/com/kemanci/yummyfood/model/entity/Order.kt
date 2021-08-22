@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 class Order(
     @SerializedName("_id")
-    var _id:String,
+    var _id:String?,
     @SerializedName("restaurant_id")
     var restaurant_id:String,
     @SerializedName("food_id")

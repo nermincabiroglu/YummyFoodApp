@@ -38,4 +38,5 @@
     <string name="min_delivery_time_label">Teslim Suresi</string>
     <string name="restaurant_menu_title">Restoran Menüsü</string>
     <string name="ingreditens_text">Ekmek, Köfte, Soğan, Kıvırcık, Cheddar peyniri, Patates kızartması, Coca-Cola</string>
+    <string name="orders_src">Sipariş ver</string>
 </resources>
