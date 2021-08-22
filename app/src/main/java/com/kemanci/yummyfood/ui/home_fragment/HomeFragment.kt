@@ -14,11 +14,13 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kemanci.yummyfood.R
 import com.kemanci.yummyfood.databinding.HomeFragmentBinding
 import com.kemanci.yummyfood.model.entity.AccountResponse
+import com.kemanci.yummyfood.utils.Common
 import com.kemanci.yummyfood.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +34,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =  HomeFragmentBinding.inflate(layoutInflater,container,false)
-        requireActivity().window.statusBarColor = Color.parseColor("#6C9FA0")
+
         accountResponse =  HomeFragmentArgs.fromBundle(requireArguments()).accountResponse
         populateViews(
             fullname = accountResponse?.account!!.name.plus(" ".plus(accountResponse?.account!!.surname)),
@@ -46,22 +48,35 @@ class HomeFragment : Fragment() {
             ordersList = accountResponse!!.account.orders!!
         )
 
+        observeOrders()
+
+
         ordersRecyclerView.adapter  = orderRecyclerViewAdapter
+
+        binding.settingsButton.setOnClickListener{
+            Common.alphaAnim(binding.settingsButton)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSettingsFragment())
+        }
+
+        binding.setAddressButton.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSettingsFragment())
+        }
+
+        binding.materialButton.setOnClickListener {
+            Log.e("TAG", "onCreateView: "+accountResponse!!.account.province )
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToRestaurantListFragment(accountResponse!!.account.province))
+        }
+
         return binding.root
     }
 
-    fun populateViews(fullname:String,province:String,county:String){
-        binding.fullNameTextView.text = fullname
-        binding.provinceTextView.text = province
-        binding.countyTextView.text = county
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observeOrders()
     }
 
-    fun getProfile(){
+    /*fun getProfile(){
         if (accountResponse!=null) return
         viewModel.profile(accountResponse!!.token).observe(viewLifecycleOwner,{
             when(it.status){
@@ -76,7 +91,7 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-    }
+    }*/
 
     @SuppressLint("NotifyDataSetChanged")
     fun observeOrders(){
@@ -106,8 +121,12 @@ class HomeFragment : Fragment() {
                 }
             })
         }
+    }
 
-
+    fun populateViews(fullname:String,province:String,county:String){
+        binding.fullNameTextView.text = fullname
+        binding.provinceTextView.text = province
+        binding.countyTextView.text = county
     }
 
 

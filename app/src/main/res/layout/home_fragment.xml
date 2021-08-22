@@ -63,7 +63,7 @@
 
         <ImageButton
             android:background="@drawable/image_button_circular_ripple"
-            android:id="@+id/imageView"
+            android:id="@+id/settingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"

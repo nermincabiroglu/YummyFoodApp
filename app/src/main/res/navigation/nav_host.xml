@@ -73,6 +73,12 @@
             app:nullable="true"
             android:name="accountResponse"
             app:argType="com.kemanci.yummyfood.model.entity.AccountResponse" />
+        <action
+            android:id="@+id/action_home_fragment_to_settings_fragment"
+            app:destination="@id/settings_fragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_restaurant_list_fragment"
+            app:destination="@id/restaurant_list_fragment" />
 
     </fragment>
 
@@ -92,6 +98,30 @@
     </fragment>
 
 
+
+    <fragment
+        android:id="@+id/restaurant_list_fragment"
+        android:name="com.kemanci.yummyfood.ui.restaurant_list_fragment.RestaurantListFragment"
+        android:label="fragment_restaurant_list"
+        tools:layout="@layout/restaurant_list_fragment">
+
+        <argument
+            android:name="province"
+            app:nullable="true"
+            app:argType="string"
+            />
+
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.kemanci.yummyfood.ui.settings_fragment.SettingsFragment"
+        tools:layout="@layout/settings_fragment"
+        android:label="fragment_settings">
+
+    </fragment>
 
 
 

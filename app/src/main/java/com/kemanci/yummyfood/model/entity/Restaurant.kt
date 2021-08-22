@@ -22,10 +22,10 @@ class Restaurant(
     var point:Double,
 
     @SerializedName("average_delivery_time")
-    var average_delivery_time:Int,
+    var average_delivery_time:String,
 
     @SerializedName("menu")
-    var menu:ArrayList<Food>,
+    var menu:ArrayList<Food>?,
 
     @SerializedName("image_url")
     var image_url:String,
@@ -44,4 +44,8 @@ class Restaurant(
 
     @SerializedName("working_end")
     var working_end:String
-):Parcelable
+):Parcelable{
+    override fun toString(): String {
+        return "Restaurant(_id='$_id', name='$name', phone_number='$phone_number', address='$address', point=$point, average_delivery_time='$average_delivery_time', menu=$menu, image_url='$image_url', county='$county', province='$province', min_order=$min_order, working_start='$working_start', working_end='$working_end')"
+    }
+}

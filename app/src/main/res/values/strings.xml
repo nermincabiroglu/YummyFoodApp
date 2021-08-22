@@ -31,4 +31,11 @@
     <string name="settings_text">Ayarlar</string>
     <string name="back_button_text">Geri</string>
     <string name="save_button_text">Kaydet</string>
+    <string name="restaurants_text_src">Restoranlar</string>
+    <string name="back_restaurant_button_text">Geri</string>
+    <string name="address_label">Adres</string>
+    <string name="min_delivery_price_label">Min. Siparis</string>
+    <string name="min_delivery_time_label">Teslim Suresi</string>
+    <string name="restaurant_menu_title">Restoran Menüsü</string>
+    <string name="ingreditens_text">Ekmek, Köfte, Soğan, Kıvırcık, Cheddar peyniri, Patates kızartması, Coca-Cola</string>
 </resources>
